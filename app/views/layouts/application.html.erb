@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>React Rails Monolith</title>
+    <title> <3 Fondest Memes</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
   </head>
 
   <body>
+    <% if current_user %>
+      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+
+    <nav>
+     <div class="nav-wrapper">
+       <a href="#" class="brand-logo"> <3 Fondest Memes</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="sass.html">Log Out</a></li>
+       </ul>
+     </div>
+   </nav>
+
     <%= yield %>
   </body>
 </html>
