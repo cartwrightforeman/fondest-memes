@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-
+  namespace :api do
+    namespace :v1 do
+      resources :static_pages, only: [:index, :create]
+    end
+  end
 end
 
 #   GifVault::Application.routes.draw do
